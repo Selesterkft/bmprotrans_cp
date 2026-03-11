@@ -1,0 +1,51 @@
+openapi: 3.0.0
+info:
+  description: "This is the short description of BM PRO TRANS CUSTOMER PORTAL backend endpoints."
+  version: 1.0.0
+  title: BM PRO TRANS CUSTOMER PORTAL backend
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: molnar.laszlo@selester.hu
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  - url: http://localhost:3000
+
+tags:
+  - name: api
+    description: Checking service availability
+  - name: api-docs
+    description: Get this documentation from server
+
+paths:
+  /api/heartbeat:
+    get:
+      tags:
+        - api
+      summary: Checking service availability
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                heartbeat:
+                  type: object
+                  properties:
+                    product:
+                      type: string
+                    version:
+                      type: string
+                    dbConnection:
+                      type: string
+                      
+  /api-docs:
+    get:
+      tags:
+        - api-docs
+      summary: Get this documentation
+      responses:
+        "200":
+          description: OK
