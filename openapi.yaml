@@ -31,16 +31,20 @@ paths:
           content:
             application/json:
               schema:
-                heartbeat:
-                  type: object
-                  properties:
-                    product:
-                      type: string
-                    version:
-                      type: string
-                    dbConnection:
-                      type: string
-                      
+                type: object
+                properties:
+                  container:
+                    type: string
+                  version:
+                    type: string
+                  heartbeat:
+                    type: boolean
+                  dbConnection:
+                    type: object
+                    properties:
+                      BMPROTRANS:
+                        type: boolean
+
   /api-docs:
     get:
       tags:
